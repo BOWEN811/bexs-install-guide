@@ -3,138 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BEXS 技能包 · 安裝教學</title>
+<title>BEXS 技能包 · 安裝教學 + 技能介紹</title>
 <style>
   :root{--bg:#0d0f1a;--bg2:#141728;--gold:#e8c254;--gold2:#f4d77a;--text:#e8eaf0;--muted:#9aa0b4;--line:#262a40;--green:#3e9d6e}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased;padding-bottom:60px}
-  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
-  header{text-align:center;padding:70px 0 40px;background:radial-gradient(700px 360px at 50% -10%,rgba(232,194,84,.16),transparent 65%)}
+  .wrap{max-width:780px;margin:0 auto;padding:0 22px}
+  header{text-align:center;padding:64px 0 36px;background:radial-gradient(700px 360px at 50% -10%,rgba(232,194,84,.16),transparent 65%)}
   .badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:6px 18px;font-size:13px;letter-spacing:3px;margin-bottom:20px}
-  h1{font-size:38px;font-weight:800;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  h1{font-size:36px;font-weight:800;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
   .lead{color:var(--muted);margin-top:16px;font-size:17px}
-  .step{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin:22px 0;position:relative}
-  .step h2{font-size:22px;display:flex;align-items:center;gap:14px;margin-bottom:12px}
-  .n{flex:none;width:38px;height:38px;border-radius:50%;background:var(--gold);color:#1a1407;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:19px}
-  .step p{color:var(--muted);margin:8px 0}
+  .step{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin:20px 0}
+  .step h2{font-size:21px;display:flex;align-items:center;gap:14px;margin-bottom:10px}
+  .n{flex:none;width:36px;height:36px;border-radius:50%;background:var(--gold);color:#1a1407;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px}
+  .step p{color:var(--muted);margin:6px 0}
   code.inline{background:#0b0d17;border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--gold2);font-size:14px}
-  .codebox{position:relative;background:#0b0d17;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0;overflow-x:auto}
+  .codebox{position:relative;background:#0b0d17;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0;overflow-x:auto}
   .codebox pre{font-family:"SF Mono",Menlo,monospace;font-size:14px;color:#cdd3e4;white-space:pre-wrap;word-break:break-all}
   .copy{position:absolute;top:10px;right:10px;background:#1c2138;border:1px solid var(--line);color:var(--muted);border-radius:7px;padding:5px 12px;font-size:12px;cursor:pointer}
   .copy:hover{color:var(--gold);border-color:var(--gold)}
-  .tip{border-left:4px solid var(--gold);background:rgba(232,194,84,.07);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;font-size:14.5px}
+  .tip{border-left:4px solid var(--gold);background:rgba(232,194,84,.07);padding:12px 16px;border-radius:0 10px 10px 0;margin:12px 0;font-size:14.5px}
   .ok{border-left-color:var(--green);background:rgba(62,157,110,.08)}
-  h2.sec{font-size:24px;margin:46px 0 6px;text-align:center}
-  .faq{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:12px 0}
+  h2.sec{font-size:25px;margin:48px 0 6px;text-align:center}
+  .secsub{text-align:center;color:var(--muted);margin-bottom:18px;font-size:15px}
+  .gname2{font-size:18px;font-weight:700;margin:30px 0 14px;padding-left:12px;border-left:4px solid var(--gold)}
+  .sk{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0}
+  .skt{color:var(--text);font-weight:800;font-size:17px;display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-bottom:8px}
+  .skd{color:#c3c9da;font-size:14.5px;margin-bottom:9px}
+  .sku{color:var(--gold2);font-size:13.5px;background:rgba(232,194,84,.06);border-radius:8px;padding:7px 11px}
+  .faq{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:10px 0}
   .faq b{color:var(--gold)}
   footer{text-align:center;color:var(--muted);font-size:13px;margin-top:50px}
   a{color:var(--gold)}
-  .gname2{font-size:18px;font-weight:700;margin:26px 0 12px;padding-left:12px;border-left:4px solid var(--gold)}
-  .skgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
-  .sk{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--muted)}
-  .sk .skt{color:var(--text);font-weight:700;font-size:15px;margin-bottom:5px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="badge">BEXS · 安裝教學</div>
-  <h1>BEXS 技能包 · 安裝教學</h1>
-  <p class="lead">3 分鐘把技能裝進你的 Claude Code，跟著做就會 ✋</p>
+  <div class="wrap">
+    <div class="badge">BEXS · 技能包教學</div>
+    <h1>BEXS 技能包 · 安裝 + 技能介紹</h1>
+    <p class="lead">3 分鐘裝好，26 個 AI 技能讓 Claude Code 幫你做事 ✋</p>
+  </div>
 </header>
 
 <div class="wrap">
 
-  <div class="tip">💡 開始前確認：你電腦已經裝好 <b>Claude Code</b>（在終端機打 <code class="inline">claude</code> 有反應）。沒有的話先去裝。</div>
+  <div class="tip">💡 開始前確認：你電腦已裝好 <b>Claude Code</b>（終端機打 <code class="inline">claude</code> 有反應）。沒有的話先去裝。</div>
+
+  <h2 class="sec">📥 安裝步驟</h2>
 
   <div class="step">
     <h2><span class="n">1</span>拿到技能包</h2>
     <p>老師會給你「下載連結」或一個 <b>ZIP 壓縮檔</b>。</p>
     <p>• 拿到 <b>連結</b>：點右上角綠色 <code class="inline">Code</code> → <code class="inline">Download ZIP</code></p>
-    <p>• 拿到 <b>ZIP 檔</b>：直接用。</p>
+    <p>• 拿到 <b>ZIP</b>：直接用。</p>
   </div>
 
   <div class="step">
     <h2><span class="n">2</span>解壓縮</h2>
-    <p>雙擊那個 ZIP 解壓縮，會得到一個資料夾，裡面有個 <code class="inline">skills</code> 子資料夾，裝著一個個技能。</p>
+    <p>雙擊 ZIP 解壓縮，會得到一個資料夾，裡面有 <code class="inline">skills</code> 子資料夾，裝著一個個技能。</p>
   </div>
 
   <div class="step">
     <h2><span class="n">3</span>打開「終端機」</h2>
-    <p>Mac：按 <code class="inline">⌘ + 空白鍵</code> → 打「終端機 / Terminal」→ Enter 打開。</p>
+    <p>Mac：按 <code class="inline">⌘ + 空白鍵</code> → 打「終端機 / Terminal」→ Enter。</p>
   </div>
 
   <div class="step">
     <h2><span class="n">4</span>把技能複製進 Claude</h2>
-    <p>先 <code class="inline">cd</code> 進你剛解壓縮的資料夾（把資料夾拖進終端機最快），然後貼上下面指令：</p>
-    <p style="margin-top:14px"><b>裝單一個技能</b>（例：廣告導演）：</p>
+    <p>先 <code class="inline">cd</code> 進你解壓縮的資料夾（把資料夾拖進終端機最快），再貼指令：</p>
+    <p style="margin-top:12px"><b>裝單一個</b>（例：廣告導演）：</p>
     <div class="codebox"><button class="copy" onclick="cp(this)">複製</button><pre>cp -r skills/ad-director ~/.claude/skills/</pre></div>
     <p><b>一次裝全部</b>：</p>
     <div class="codebox"><button class="copy" onclick="cp(this)">複製</button><pre>for d in skills/*/; do cp -r "$d" ~/.claude/skills/; done</pre></div>
-    <div class="tip">📁 <code class="inline">~/.claude/skills/</code> 就是 Claude 放技能的地方，貼指令會自動放對位置，不用自己找。</div>
+    <div class="tip">📁 <code class="inline">~/.claude/skills/</code> 是 Claude 放技能的地方，貼指令會自動放對位置。</div>
   </div>
 
   <div class="step">
     <h2><span class="n">5</span>重開 Claude Code</h2>
-    <p>關掉 Claude Code 再重新打開（讓它讀到新技能）。</p>
+    <p>關掉再重開，讓它讀到新技能。</p>
   </div>
 
   <div class="step">
     <h2><span class="n">6</span>開始用！</h2>
-    <p>兩種用法：</p>
-    <p>• <b>白話講</b>：直接說你要做什麼（例：「幫我把這支影片切成短片」），對應技能會自動跳出來。</p>
-    <p>• <b>打技能名</b>：在指令裡輸入英文技能名，例如 <code class="inline">ad-director</code>。</p>
-    <div class="tip ok">✅ 看到技能會動作，就裝成功了！</div>
+    <p>• <b>白話講</b>：直接說你要做什麼，對應技能自動跳出來。</p>
+    <p>• <b>打技能名</b>：輸入英文技能名，例如 <code class="inline">ad-director</code>。</p>
+    <div class="tip ok">✅ 看到技能動作，就裝成功了！</div>
   </div>
 
-  <h2 class="sec">🧰 26 個技能介紹</h2>
-  <p style="text-align:center;color:var(--muted);margin-bottom:8px">每個技能能幹嘛，一覽看懂。安裝/呼叫一律用<b>英文名</b>。</p>
+  <h2 class="sec">🧰 26 個技能完整介紹</h2>
+  <p class="secsub">每個技能能幹嘛 + 怎麼開口叫它。安裝/呼叫一律用<b>英文名</b>。</p>
 
   <div class="gname2">⭐ 招牌創作 / 工具技能（15）</div>
-  <div class="skgrid">
-    <div class="sk"><div class="skt">🎬 廣告導演<code class="inline">ad-director</code></div>AI 廣告片總導演：劇本→分鏡→配音→配樂→剪輯</div>
-    <div class="sk"><div class="skt">🎞️ AI影片製片<code class="inline">ai-film-studio</code></div>一句話→分鏡→生圖→生影片→剪接，整套製片</div>
-    <div class="sk"><div class="skt">✂️ 長片切短影音<code class="inline">video-shorts</code></div>長片自動切一批 9:16 直式短影音</div>
-    <div class="sk"><div class="skt">📺 動態廣告<code class="inline">motion-ad</code></div>15 秒「不像 AI」的商業動態廣告</div>
-    <div class="sk"><div class="skt">🎙️ YouTube轉Podcast<code class="inline">yt-to-podcast</code></div>YouTube→中文重點報表→NotebookLM Podcast</div>
-    <div class="sk"><div class="skt">🖼️ AI生圖生片<code class="inline">higgsfield-generate</code></div>生圖 / 生影片 / UGC 真人代言廣告</div>
-    <div class="sk"><div class="skt">👤 數位分身訓練<code class="inline">higgsfield-soul-id</code></div>訓練專屬人臉，生出一致的你</div>
-    <div class="sk"><div class="skt">📸 產品攝影<code class="inline">higgsfield-product-photoshoot</code></div>品牌級產品圖、情境圖、廣告素材</div>
-    <div class="sk"><div class="skt">🛒 電商商品圖卡<code class="inline">higgsfield-marketplace-cards</code></div>商品上架主圖、細節卡、A+ 內容</div>
-    <div class="sk"><div class="skt">📊 交易單體檢<code class="inline">bexs-trade-audit</code></div>用 BEXS 系統體檢任一筆交易、打分＋建議</div>
-    <div class="sk"><div class="skt">🎯 找客戶名單<code class="inline">client-finder</code></div>自動找潛在客戶 + 有效聯絡 email</div>
-    <div class="sk"><div class="skt">🔥 煉丹爐模型微調<code class="inline">lora-forge</code></div>本地模型微調 / 養專屬 AI 的 SOP</div>
-    <div class="sk"><div class="skt">🔍 網頁審核<code class="inline">web-audit-supervisor</code></div>實開網站跑十層 QA，列問題＋修法</div>
-    <div class="sk"><div class="skt">⚡ 網頁效能體檢<code class="inline">web-perf</code></div>Core Web Vitals、Lighthouse、載入速度</div>
-    <div class="sk"><div class="skt">📥 抓Notion公開頁<code class="inline">notion-public-fetch</code></div>免 token 把 Notion 公開頁抓成 markdown</div>
-  </div>
+
+  <div class="sk"><div class="skt">🎬 廣告導演 <code class="inline">ad-director</code></div>
+    <div class="skd">像請了一位資深廣告導演，從寫劇本、分鏡、運鏡、生成畫面、配旁白、配樂、剪輯到上字卡，整支商業廣告片一條龍幫你做到「可上市」等級，每一步都過審核才放行。</div>
+    <div class="sku">💬 怎麼說：「幫我拍一支廣告」「做支精品錶廣告片」「重剪這支片」</div></div>
+
+  <div class="sk"><div class="skt">🎞️ AI影片製片 <code class="inline">ai-film-studio</code></div>
+    <div class="skd">一句話劇本就能變成一支片：自動生分鏡、建立角色/場景一致性設定、生關鍵畫面、生影片、剪接成片。適合做故事片、MV、宣傳片。</div>
+    <div class="sku">💬 怎麼說：「把這個故事做成影片」「做一支片」「一句話變影片」</div></div>
+
+  <div class="sk"><div class="skt">✂️ 長片切短影音 <code class="inline">video-shorts</code></div>
+    <div class="skd">把一支長影片自動切成一批適合 IG / TikTok / YouTube Shorts 的 9:16 直式短片，自動抓重點、裁直式、加動態字幕。特別適合知識型乾貨。</div>
+    <div class="sku">💬 怎麼說：「把這支影片切成短片」「做幾支 Reels」「切重點片段」</div></div>
+
+  <div class="sk"><div class="skt">📺 動態廣告 <code class="inline">motion-ad</code></div>
+    <div class="skd">做 15 秒「不像 AI」的精緻動態設計廣告，適合接案作品集或交付客戶，可一次量產多種顏色/產業變體。</div>
+    <div class="sku">💬 怎麼說：「做一支動態廣告」「做支 15 秒產品廣告」「量產廣告變體」</div></div>
+
+  <div class="sk"><div class="skt">🎙️ YouTube轉Podcast <code class="inline">yt-to-podcast</code></div>
+    <div class="skd">丟一個 YouTube 連結，自動下載字幕、翻成中文、整理成 S/A/B 級重點報表，再做成 NotebookLM 的 Podcast 音檔。</div>
+    <div class="sku">💬 怎麼說：「把這影片做成 Podcast」「整理這支影片重點」（貼 YT 連結）</div></div>
+
+  <div class="sk"><div class="skt">🖼️ AI生圖生片 <code class="inline">higgsfield-generate</code></div>
+    <div class="skd">用 Higgsfield 生高品質圖、影片、圖生影片、真人代言 UGC 帶貨廣告。要付費帳號但品質高。</div>
+    <div class="sku">💬 怎麼說：「生一張圖」「做支廣告」「動畫這張照片」「做 UGC 影片」</div></div>
+
+  <div class="sk"><div class="skt">👤 數位分身訓練 <code class="inline">higgsfield-soul-id</code></div>
+    <div class="skd">訓練一個專屬你臉的模型，之後生圖生片都是「一致的你」，可做個人 IP、虛擬代言、形象照。</div>
+    <div class="sku">💬 怎麼說：「訓練我的臉」「做我的數位分身」「建一個我的 avatar」</div></div>
+
+  <div class="sk"><div class="skt">📸 產品攝影 <code class="inline">higgsfield-product-photoshoot</code></div>
+    <div class="skd">把一張普通產品照變成品牌級棚拍圖、情境生活照、廣告素材、虛擬試穿，免找攝影棚。</div>
+    <div class="sku">💬 怎麼說：「把這產品拍漂亮」「做產品情境圖」「做廣告素材」</div></div>
+
+  <div class="sk"><div class="skt">🛒 電商商品圖卡 <code class="inline">higgsfield-marketplace-cards</code></div>
+    <div class="skd">做電商上架用的商品主圖、細節說明卡、A+ 內容模組，符合蝦皮 / Amazon 賣場規範。</div>
+    <div class="sku">💬 怎麼說：「做蝦皮上架圖」「做 Amazon 商品卡」「做 A+ 內容」</div></div>
+
+  <div class="sk"><div class="skt">📊 交易單體檢 <code class="inline">bexs-trade-audit</code></div>
+    <div class="skd">丟一張盤面圖或交易描述，用 BEXS 系統（時段紀律 / SOP / 止損 / 心態紀律 / 錯誤反指標）幫你打分、列出違紀清單、給修正建議。學員自助復盤神器。</div>
+    <div class="sku">💬 怎麼說：「幫我看這張圖」「這單可以進嗎」「復盤這筆交易」</div></div>
+
+  <div class="sk"><div class="skt">🎯 找客戶名單 <code class="inline">client-finder</code></div>
+    <div class="skd">自動從 Google Maps、Kickstarter、賣家平台找潛在客戶負責人的 email，過濾死帳號，輸出乾淨可寄送的開發名單。</div>
+    <div class="sku">💬 怎麼說：「幫我找客戶」「抓開發名單」「找接案對象」</div></div>
+
+  <div class="sk"><div class="skt">🔥 煉丹爐模型微調 <code class="inline">lora-forge</code></div>
+    <div class="skd">在自己電腦上微調本地 AI 模型（LoRA）的完整流程：收料 → 訓練 → 評估 → 部署，把模型養成你專屬的。進階玩家用。</div>
+    <div class="sku">💬 怎麼說：「微調模型」「煉丹」「養我自己的 AI」</div></div>
+
+  <div class="sk"><div class="skt">🔍 網頁審核 <code class="inline">web-audit-supervisor</code></div>
+    <div class="skd">實際打開你的網站跑十層全面體檢（RWD / SEO / 速度 / console / 死連結 / 表單…），產出問題清單 + 嚴重度 + 修復指令。當你的外部驗收 QA。</div>
+    <div class="sku">💬 怎麼說：「幫我審一下網站」「驗收這個網頁」「抓 bug」</div></div>
+
+  <div class="sk"><div class="skt">⚡ 網頁效能體檢 <code class="inline">web-perf</code></div>
+    <div class="skd">量你網站的 Core Web Vitals（LCP/INP/CLS）、Lighthouse 分數，找出拖慢載入的原因。</div>
+    <div class="sku">💬 怎麼說：「網站好慢」「測一下速度」「優化效能」</div></div>
+
+  <div class="sk"><div class="skt">📥 抓Notion公開頁 <code class="inline">notion-public-fetch</code></div>
+    <div class="skd">把 Notion 公開分享頁的內容免 token 抓下來轉成 markdown，含巢狀子頁面。整理課程 / 知識庫超好用。</div>
+    <div class="sku">💬 怎麼說：「抓這個 Notion 頁」（貼 notion 連結）</div></div>
 
   <div class="gname2">⚙️ 開發 / 設計內建技能（11）</div>
-  <div class="skgrid">
-    <div class="sk"><div class="skt">☁️ Cloudflare開發<code class="inline">cloudflare</code></div>Cloudflare 全平台開發（Workers/KV/D1/R2/AI）</div>
-    <div class="sk"><div class="skt">🤖 Agent開發SDK<code class="inline">agents-sdk</code></div>在 Cloudflare Workers 上建 AI agent</div>
-    <div class="sk"><div class="skt">🧩 有狀態物件<code class="inline">durable-objects</code></div>建有狀態協調（聊天室/多人/訂位）</div>
-    <div class="sk"><div class="skt">✅ Workers最佳實踐<code class="inline">workers-best-practices</code></div>Workers 程式碼最佳實踐審查</div>
-    <div class="sk"><div class="skt">🛠️ Wrangler部署CLI<code class="inline">wrangler</code></div>Cloudflare 部署 / 開發指令工具</div>
-    <div class="sk"><div class="skt">📦 沙箱執行<code class="inline">sandbox-sdk</code></div>沙箱中安全執行程式碼</div>
-    <div class="sk"><div class="skt">📧 Cloudflare郵件<code class="inline">cloudflare-email-service</code></div>用 Cloudflare 寄 / 收 email</div>
-    <div class="sk"><div class="skt">🎨 UIUX設計庫<code class="inline">ui-ux-pro-max</code></div>UI/UX 設計智庫（多風格/配色/技術棧）</div>
-    <div class="sk"><div class="skt">🖌️ 視覺設計<code class="inline">canvas-design</code></div>海報 / 視覺藝術設計</div>
-    <div class="sk"><div class="skt">💻 前端設計<code class="inline">frontend-design</code></div>前端介面設計指引</div>
-    <div class="sk"><div class="skt">🏷️ 品牌規範<code class="inline">brand-guidelines</code></div>套用品牌色彩與字體</div>
-  </div>
+
+  <div class="sk"><div class="skt">☁️ Cloudflare開發 <code class="inline">cloudflare</code></div>
+    <div class="skd">Cloudflare 全平台開發助手：Workers、KV、D1 資料庫、R2 儲存、Workers AI 等。</div>
+    <div class="sku">💬 怎麼說：「用 Cloudflare 做一個…」</div></div>
+
+  <div class="sk"><div class="skt">🤖 Agent開發SDK <code class="inline">agents-sdk</code></div>
+    <div class="skd">在 Cloudflare Workers 上打造有狀態的 AI agent、即時應用、排程任務。</div>
+    <div class="sku">💬 怎麼說：「幫我建一個 AI agent」</div></div>
+
+  <div class="sk"><div class="skt">🧩 有狀態物件 <code class="inline">durable-objects</code></div>
+    <div class="skd">建有狀態的即時協調系統：聊天室、多人遊戲、訂位系統等。</div>
+    <div class="sku">💬 怎麼說：「做一個聊天室 / 多人協作」</div></div>
+
+  <div class="sk"><div class="skt">✅ Workers最佳實踐 <code class="inline">workers-best-practices</code></div>
+    <div class="skd">審查 Cloudflare Workers 程式碼是否符合生產環境最佳實踐。</div>
+    <div class="sku">💬 怎麼說：「審一下我的 Workers 程式」</div></div>
+
+  <div class="sk"><div class="skt">🛠️ Wrangler部署CLI <code class="inline">wrangler</code></div>
+    <div class="skd">Cloudflare 部署 / 開發指令工具的正確用法與語法。</div>
+    <div class="sku">💬 怎麼說：「用 wrangler 部署」</div></div>
+
+  <div class="sk"><div class="skt">📦 沙箱執行 <code class="inline">sandbox-sdk</code></div>
+    <div class="skd">在隔離沙箱中安全執行（不信任的）程式碼，做 code interpreter、CI/CD。</div>
+    <div class="sku">💬 怎麼說：「安全執行這段程式」</div></div>
+
+  <div class="sk"><div class="skt">📧 Cloudflare郵件 <code class="inline">cloudflare-email-service</code></div>
+    <div class="skd">用 Cloudflare 寄送 / 接收 email、做交易信、email 路由。</div>
+    <div class="sku">💬 怎麼說：「幫我加寄信功能」</div></div>
+
+  <div class="sk"><div class="skt">🎨 UIUX設計庫 <code class="inline">ui-ux-pro-max</code></div>
+    <div class="skd">UI/UX 設計智庫，含多種風格、配色、字體配對、前端框架，幫你做出不像模板的漂亮介面。</div>
+    <div class="sku">💬 怎麼說：「設計一個網頁 / 儀表板 / 落地頁」</div></div>
+
+  <div class="sk"><div class="skt">🖌️ 視覺設計 <code class="inline">canvas-design</code></div>
+    <div class="skd">做海報、藝術設計等靜態視覺（png / pdf）。</div>
+    <div class="sku">💬 怎麼說：「做一張海報 / 設計圖」</div></div>
+
+  <div class="sk"><div class="skt">💻 前端設計 <code class="inline">frontend-design</code></div>
+    <div class="skd">前端介面的設計指引，幫你的 UI 有獨特質感、不像套版。</div>
+    <div class="sku">💬 怎麼說：「幫我把這個介面做漂亮」</div></div>
+
+  <div class="sk"><div class="skt">🏷️ 品牌規範 <code class="inline">brand-guidelines</code></div>
+    <div class="skd">套用品牌色彩與字體規範到你的產出，維持一致的品牌視覺。</div>
+    <div class="sku">💬 怎麼說：「套用品牌風格」</div></div>
 
   <h2 class="sec">❓ 常見問題</h2>
 
-  <div class="faq"><b>Q：裝了叫不出來？</b><br>確認你複製的是 <code class="inline">skills/</code> 裡面的<b>技能資料夾</b>，而且放到了 <code class="inline">~/.claude/skills/</code>，然後<b>重開</b> Claude Code。</div>
+  <div class="faq"><b>Q：裝了叫不出來？</b><br>確認你複製的是 <code class="inline">skills/</code> 裡的<b>技能資料夾</b>，放到 <code class="inline">~/.claude/skills/</code>，然後<b>重開</b> Claude Code。</div>
 
-  <div class="faq"><b>Q：哪些技能要額外環境？</b><br>影音 / 生圖類技能（製片、生圖、生影片）需要對應工具（ComfyUI、Higgsfield 帳號、本地模型等）。文字 / 分析類（交易體檢、找客戶、網頁審核）裝了直接能用。</div>
+  <div class="faq"><b>Q：哪些技能要額外環境？</b><br>影音 / 生圖類（製片、生圖、生影片）需對應工具（ComfyUI、Higgsfield 帳號、本地模型）。文字 / 分析類（交易體檢、找客戶、網頁審核）裝了直接能用。</div>
 
-  <div class="faq"><b>Q：每個技能在幹嘛？</b><br>進到該技能資料夾，打開裡面的 <code class="inline">SKILL.md</code>，就有完整說明。或看技能包 README 的對照表。</div>
+  <div class="faq"><b>Q：每個技能更深入的說明在哪？</b><br>進到該技能資料夾，打開裡面的 <code class="inline">SKILL.md</code>，有完整用法。</div>
 
-  <div class="faq"><b>Q：我不是用 Mac？</b><br>Windows / Linux 一樣，把技能資料夾複製到 <code class="inline">~/.claude/skills/</code>（家目錄下的 .claude/skills）即可。</div>
+  <div class="faq"><b>Q：不是用 Mac？</b><br>Windows / Linux 一樣，把技能資料夾複製到家目錄下的 <code class="inline">.claude/skills/</code> 即可。</div>
 
-  <footer>BEXS 技能包 · 安裝教學　|　有問題問老師 🙌</footer>
+  <footer>BEXS 技能包 · 安裝 + 技能介紹　|　有問題問老師 🙌</footer>
 </div>
 
 <script>
