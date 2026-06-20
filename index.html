@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEXS 技能包 · 安裝教學</title>
+<style>
+  :root{--bg:#0d0f1a;--bg2:#141728;--gold:#e8c254;--gold2:#f4d77a;--text:#e8eaf0;--muted:#9aa0b4;--line:#262a40;--green:#3e9d6e}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;-webkit-font-smoothing:antialiased;padding-bottom:60px}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  header{text-align:center;padding:70px 0 40px;background:radial-gradient(700px 360px at 50% -10%,rgba(232,194,84,.16),transparent 65%)}
+  .badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:6px 18px;font-size:13px;letter-spacing:3px;margin-bottom:20px}
+  h1{font-size:38px;font-weight:800;background:linear-gradient(90deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);margin-top:16px;font-size:17px}
+  .step{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin:22px 0;position:relative}
+  .step h2{font-size:22px;display:flex;align-items:center;gap:14px;margin-bottom:12px}
+  .n{flex:none;width:38px;height:38px;border-radius:50%;background:var(--gold);color:#1a1407;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:19px}
+  .step p{color:var(--muted);margin:8px 0}
+  code.inline{background:#0b0d17;border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--gold2);font-size:14px}
+  .codebox{position:relative;background:#0b0d17;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0;overflow-x:auto}
+  .codebox pre{font-family:"SF Mono",Menlo,monospace;font-size:14px;color:#cdd3e4;white-space:pre-wrap;word-break:break-all}
+  .copy{position:absolute;top:10px;right:10px;background:#1c2138;border:1px solid var(--line);color:var(--muted);border-radius:7px;padding:5px 12px;font-size:12px;cursor:pointer}
+  .copy:hover{color:var(--gold);border-color:var(--gold)}
+  .tip{border-left:4px solid var(--gold);background:rgba(232,194,84,.07);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;font-size:14.5px}
+  .ok{border-left-color:var(--green);background:rgba(62,157,110,.08)}
+  h2.sec{font-size:24px;margin:46px 0 6px;text-align:center}
+  .faq{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:12px 0}
+  .faq b{color:var(--gold)}
+  footer{text-align:center;color:var(--muted);font-size:13px;margin-top:50px}
+  a{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">BEXS · 安裝教學</div>
+  <h1>BEXS 技能包 · 安裝教學</h1>
+  <p class="lead">3 分鐘把技能裝進你的 Claude Code，跟著做就會 ✋</p>
+</header>
+
+<div class="wrap">
+
+  <div class="tip">💡 開始前確認：你電腦已經裝好 <b>Claude Code</b>（在終端機打 <code class="inline">claude</code> 有反應）。沒有的話先去裝。</div>
+
+  <div class="step">
+    <h2><span class="n">1</span>拿到技能包</h2>
+    <p>老師會給你「下載連結」或一個 <b>ZIP 壓縮檔</b>。</p>
+    <p>• 拿到 <b>連結</b>：點右上角綠色 <code class="inline">Code</code> → <code class="inline">Download ZIP</code></p>
+    <p>• 拿到 <b>ZIP 檔</b>：直接用。</p>
+  </div>
+
+  <div class="step">
+    <h2><span class="n">2</span>解壓縮</h2>
+    <p>雙擊那個 ZIP 解壓縮，會得到一個資料夾，裡面有個 <code class="inline">skills</code> 子資料夾，裝著一個個技能。</p>
+  </div>
+
+  <div class="step">
+    <h2><span class="n">3</span>打開「終端機」</h2>
+    <p>Mac：按 <code class="inline">⌘ + 空白鍵</code> → 打「終端機 / Terminal」→ Enter 打開。</p>
+  </div>
+
+  <div class="step">
+    <h2><span class="n">4</span>把技能複製進 Claude</h2>
+    <p>先 <code class="inline">cd</code> 進你剛解壓縮的資料夾（把資料夾拖進終端機最快），然後貼上下面指令：</p>
+    <p style="margin-top:14px"><b>裝單一個技能</b>（例：廣告導演）：</p>
+    <div class="codebox"><button class="copy" onclick="cp(this)">複製</button><pre>cp -r skills/ad-director ~/.claude/skills/</pre></div>
+    <p><b>一次裝全部</b>：</p>
+    <div class="codebox"><button class="copy" onclick="cp(this)">複製</button><pre>for d in skills/*/; do cp -r "$d" ~/.claude/skills/; done</pre></div>
+    <div class="tip">📁 <code class="inline">~/.claude/skills/</code> 就是 Claude 放技能的地方，貼指令會自動放對位置，不用自己找。</div>
+  </div>
+
+  <div class="step">
+    <h2><span class="n">5</span>重開 Claude Code</h2>
+    <p>關掉 Claude Code 再重新打開（讓它讀到新技能）。</p>
+  </div>
+
+  <div class="step">
+    <h2><span class="n">6</span>開始用！</h2>
+    <p>兩種用法：</p>
+    <p>• <b>白話講</b>：直接說你要做什麼（例：「幫我把這支影片切成短片」），對應技能會自動跳出來。</p>
+    <p>• <b>打技能名</b>：在指令裡輸入英文技能名，例如 <code class="inline">ad-director</code>。</p>
+    <div class="tip ok">✅ 看到技能會動作，就裝成功了！</div>
+  </div>
+
+  <h2 class="sec">❓ 常見問題</h2>
+
+  <div class="faq"><b>Q：裝了叫不出來？</b><br>確認你複製的是 <code class="inline">skills/</code> 裡面的<b>技能資料夾</b>，而且放到了 <code class="inline">~/.claude/skills/</code>，然後<b>重開</b> Claude Code。</div>
+
+  <div class="faq"><b>Q：哪些技能要額外環境？</b><br>影音 / 生圖類技能（製片、生圖、生影片）需要對應工具（ComfyUI、Higgsfield 帳號、本地模型等）。文字 / 分析類（交易體檢、找客戶、網頁審核）裝了直接能用。</div>
+
+  <div class="faq"><b>Q：每個技能在幹嘛？</b><br>進到該技能資料夾，打開裡面的 <code class="inline">SKILL.md</code>，就有完整說明。或看技能包 README 的對照表。</div>
+
+  <div class="faq"><b>Q：我不是用 Mac？</b><br>Windows / Linux 一樣，把技能資料夾複製到 <code class="inline">~/.claude/skills/</code>（家目錄下的 .claude/skills）即可。</div>
+
+  <footer>BEXS 技能包 · 安裝教學　|　有問題問老師 🙌</footer>
+</div>
+
+<script>
+function cp(btn){
+  const t=btn.parentElement.querySelector('pre').innerText;
+  navigator.clipboard.writeText(t).then(()=>{btn.innerText='已複製 ✓';setTimeout(()=>btn.innerText='複製',1500)});
+}
+</script>
+</body>
+</html>
