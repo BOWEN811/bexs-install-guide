@@ -29,6 +29,10 @@
   .faq b{color:var(--gold)}
   footer{text-align:center;color:var(--muted);font-size:13px;margin-top:50px}
   a{color:var(--gold)}
+  .gname2{font-size:18px;font-weight:700;margin:26px 0 12px;padding-left:12px;border-left:4px solid var(--gold)}
+  .skgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+  .sk{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--muted)}
+  .sk .skt{color:var(--text);font-weight:700;font-size:15px;margin-bottom:5px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 </style>
 </head>
 <body>
@@ -81,6 +85,43 @@
     <p>• <b>白話講</b>：直接說你要做什麼（例：「幫我把這支影片切成短片」），對應技能會自動跳出來。</p>
     <p>• <b>打技能名</b>：在指令裡輸入英文技能名，例如 <code class="inline">ad-director</code>。</p>
     <div class="tip ok">✅ 看到技能會動作，就裝成功了！</div>
+  </div>
+
+  <h2 class="sec">🧰 26 個技能介紹</h2>
+  <p style="text-align:center;color:var(--muted);margin-bottom:8px">每個技能能幹嘛，一覽看懂。安裝/呼叫一律用<b>英文名</b>。</p>
+
+  <div class="gname2">⭐ 招牌創作 / 工具技能（15）</div>
+  <div class="skgrid">
+    <div class="sk"><div class="skt">廣告導演 <code class="inline">ad-director</code></div>AI 廣告片總導演：劇本→分鏡→配音→配樂→剪輯</div>
+    <div class="sk"><div class="skt">AI影片製片 <code class="inline">ai-film-studio</code></div>一句話→分鏡→生圖→生影片→剪接，整套製片</div>
+    <div class="sk"><div class="skt">長片切短影音 <code class="inline">video-shorts</code></div>長片自動切一批 9:16 直式短影音</div>
+    <div class="sk"><div class="skt">動態廣告 <code class="inline">motion-ad</code></div>15 秒「不像 AI」的商業動態廣告</div>
+    <div class="sk"><div class="skt">YouTube轉Podcast <code class="inline">yt-to-podcast</code></div>YouTube→中文重點報表→NotebookLM Podcast</div>
+    <div class="sk"><div class="skt">AI生圖生片 <code class="inline">higgsfield-generate</code></div>生圖 / 生影片 / UGC 真人代言廣告</div>
+    <div class="sk"><div class="skt">數位分身訓練 <code class="inline">higgsfield-soul-id</code></div>訓練專屬人臉，生出一致的你</div>
+    <div class="sk"><div class="skt">產品攝影 <code class="inline">higgsfield-product-photoshoot</code></div>品牌級產品圖、情境圖、廣告素材</div>
+    <div class="sk"><div class="skt">電商商品圖卡 <code class="inline">higgsfield-marketplace-cards</code></div>商品上架主圖、細節卡、A+ 內容</div>
+    <div class="sk"><div class="skt">交易單體檢 <code class="inline">bexs-trade-audit</code></div>用 BEXS 系統體檢任一筆交易、打分＋建議</div>
+    <div class="sk"><div class="skt">找客戶名單 <code class="inline">client-finder</code></div>自動找潛在客戶 + 有效聯絡 email</div>
+    <div class="sk"><div class="skt">煉丹爐模型微調 <code class="inline">lora-forge</code></div>本地模型微調 / 養專屬 AI 的 SOP</div>
+    <div class="sk"><div class="skt">網頁審核 <code class="inline">web-audit-supervisor</code></div>實開網站跑十層 QA，列問題＋修法</div>
+    <div class="sk"><div class="skt">網頁效能體檢 <code class="inline">web-perf</code></div>Core Web Vitals、Lighthouse、載入速度</div>
+    <div class="sk"><div class="skt">抓Notion公開頁 <code class="inline">notion-public-fetch</code></div>免 token 把 Notion 公開頁抓成 markdown</div>
+  </div>
+
+  <div class="gname2">⚙️ 開發 / 設計內建技能（11）</div>
+  <div class="skgrid">
+    <div class="sk"><div class="skt">Cloudflare開發 <code class="inline">cloudflare</code></div>Cloudflare 全平台開發（Workers/KV/D1/R2/AI）</div>
+    <div class="sk"><div class="skt">Agent開發SDK <code class="inline">agents-sdk</code></div>在 Cloudflare Workers 上建 AI agent</div>
+    <div class="sk"><div class="skt">有狀態物件 <code class="inline">durable-objects</code></div>建有狀態協調（聊天室/多人/訂位）</div>
+    <div class="sk"><div class="skt">Workers最佳實踐 <code class="inline">workers-best-practices</code></div>Workers 程式碼最佳實踐審查</div>
+    <div class="sk"><div class="skt">Wrangler部署CLI <code class="inline">wrangler</code></div>Cloudflare 部署 / 開發指令工具</div>
+    <div class="sk"><div class="skt">沙箱執行 <code class="inline">sandbox-sdk</code></div>沙箱中安全執行程式碼</div>
+    <div class="sk"><div class="skt">Cloudflare郵件 <code class="inline">cloudflare-email-service</code></div>用 Cloudflare 寄 / 收 email</div>
+    <div class="sk"><div class="skt">UIUX設計庫 <code class="inline">ui-ux-pro-max</code></div>UI/UX 設計智庫（多風格/配色/技術棧）</div>
+    <div class="sk"><div class="skt">視覺設計 <code class="inline">canvas-design</code></div>海報 / 視覺藝術設計</div>
+    <div class="sk"><div class="skt">前端設計 <code class="inline">frontend-design</code></div>前端介面設計指引</div>
+    <div class="sk"><div class="skt">品牌規範 <code class="inline">brand-guidelines</code></div>套用品牌色彩與字體</div>
   </div>
 
   <h2 class="sec">❓ 常見問題</h2>
